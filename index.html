@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Zoo Health Club of – Gonzales</title>
+
+  <!-- Favicon goes HERE -->
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <meta name="description" content="The Zoo Health Club Gonzales • Strength training, group classes, cardio, tanning • Free 7-Day Pass" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+
+    :root{
+      --bg:#0b0b0b;       /* Deep black */
+      --bg-soft:#111;     /* Card background */
+      --ink:#eaeaea;      /* Body text */
+      --ink-dim:#bdbdbd;  /* Muted */
+      --accent:#f9b300;   /* Zoo yellow */
+      --accent-dark:#c78f00; /* Button hover */
+      --danger:#ff5252;   /* For form errors */
+      --radius:18px;
+      --shadow:0 12px 30px rgba(0,0,0,.35);
+    }
+
+    .facebook-strip,
+.google-strip {
+  padding: 24px 0; /* smaller space */
+  margin: 0;       /* remove extra gaps */
+}
+
+    * { box-sizing:border-box }
+    html, body { height:100% }
+    body{
+      margin:0; background:var(--bg); color:var(--ink); font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      line-height:1.6;
+    }
+    a{ color:var(--accent); text-decoration:none }
+    img{ max-width:100%; display:block }
+    .container{ width:min(1200px, 92vw); margin-inline:auto }
+    .btn{ display:inline-flex; gap:.5rem; align-items:center; justify-content:center; padding:.9rem 1.25rem; border-radius:999px; font-weight:700; letter-spacing:.3px; background:var(--accent); color:#111; border:none; cursor:pointer; transition:.2s transform, .2s background; box-shadow:var(--shadow) }
+    .btn:hover{ background:var(--accent-dark); transform:translateY(-1px) }
+    .btn--ghost{ background:transparent; border:2px solid var(--accent); color:var(--accent); box-shadow:none }
+    .btn--ghost:hover{ background:rgba(249,179,0,.1) }
+    header.site-top{
+      position:sticky; top:0; z-index:40; backdrop-filter: blur(8px); background:rgba(11,11,11,.7); border-bottom:1px solid rgba(255,255,255,.06)
+    }
+    .topbar{ display:flex; align-items:center; justify-content:space-between; padding:.8rem 0 }
+    .brand{ display:flex; align-items:center; gap:.8rem; font-weight:900; letter-spacing:.6px }
+    .brand-logo{ width:42px; height:42px; background:radial-gradient(60% 60% at 50% 40%, #ffd768, #f9b300); border-radius:10px; box-shadow:0 6px 18px rgba(249,179,0,.35) }
+    nav a{ font-weight:600; margin-left:1.2rem; color:var(--ink-dim) }
+    nav a:hover{ color:var(--ink) }
+    .cta-row{ display:flex; gap:.6rem }
+
+    /* HERO */
+    .hero{ position:relative; min-height:84svh; display:grid; place-items:center; background:#000 }
+    .hero::before{ content:""; position:absolute; inset:0; background:url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat; filter:grayscale(.1) brightness(.45); }
+    .hero::after{ content:""; position:absolute; inset:0; background:radial-gradient(80% 60% at 50% 40%, rgba(249,179,0,.12), transparent 60%) }
+    .hero-inner{ position:relative; z-index:1; text-align:center; padding:4rem 0 }
+    .eyebrow{ color:var(--accent); font-weight:800; letter-spacing:3px; text-transform:uppercase; font-family:Montserrat, sans-serif }
+    .headline{ font-family:Montserrat, sans-serif; font-size:clamp(42px, 6vw, 92px); line-height:.95; font-weight:900; margin:.35em 0; text-shadow:0 12px 30px rgba(0,0,0,.5) }
+    .subhead{ font-size:clamp(18px, 1.8vw, 22px); color:#e8e8e8; max-width:900px; margin-inline:auto }
+    .hero-actions{ margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap; align-items:center; justify-content:center }
+    .location{ margin-top:1rem; font-weight:600; color:#efefef }
+
+    /* FEATURES GRID */
+    .section{ padding:72px 0; position:relative }
+    .section-title{ font-family:Montserrat, sans-serif; font-weight:900; font-size:clamp(28px, 3vw, 42px); margin:0 0 24px }
+    .grid{ display:grid; gap:20px }
+    .grid.cards{ grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)) }
+    .card{ background:var(--bg-soft); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow) }
+    .card h3{ margin:0 0 .3rem; font-family:Montserrat, sans-serif }
+    .card p{ margin:0; color:var(--ink-dim) }
+    .bullets{ margin:10px 0 0; padding-left:18px }
+    .bullets li{ margin:.2rem 0 }
+
+    /* PASS FORM */
+    .pass{ display:grid; gap:28px; grid-template-columns:1fr; }
+    .pass .card{ padding:28px }
+    .form{ display:grid; gap:14px; grid-template-columns:repeat(2, minmax(0, 1fr)) }
+    .form .full{ grid-column:1 / -1 }
+    label{ font-weight:600; font-size:.9rem; color:#f1f1f1 }
+    input, select{ width:100%; margin-top:6px; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#0d0d0d; color:#fff; outline:none }
+    input:focus, select:focus{ border-color:var(--accent) }
+    .checkbox{ display:flex; gap:.7rem; align-items:flex-start; color:var(--ink-dim); font-size:.92rem }
+    .error{ color:var(--danger); font-size:.9rem }
+
+    /* THREE IMAGE TILES */
+    .tiles{ display:grid; gap:22px; grid-template-columns:repeat(3, minmax(0, 1fr)) }
+    .tile{
+      position:relative; border-radius:var(--radius); overflow:hidden; isolation:isolate; box-shadow:var(--shadow); background:#000;
+      min-height:240px; display:grid; place-items:end; padding:22px
+    }
+    .tile::before{ content:""; position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.1)); z-index:0 }
+    .tile h4{ z-index:1; margin:0; font:800 28px/1.1 Montserrat, sans-serif }
+
+    /* REVIEW STRIP */
+    .review{ display:flex; gap:18px; align-items:center; justify-content:center; background:#111; border:1px solid rgba(255,255,255,.06); padding:24px; border-radius:var(--radius) }
+    .stars{ letter-spacing:4px; font-size:22px; color:var(--accent) }
+
+    footer{ background:var(--accent); color:#111; padding:40px 0; margin-top:72px }
+    footer .row{ display:flex; gap:18px; align-items:center; justify-content:space-between; flex-wrap:wrap }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px){
+      nav{ display:none }
+      .tiles{ grid-template-columns:1fr }
+      .form{ grid-template-columns:1fr }
+    }
+  </style>
+</head>
+<body>
+  <!-- Top Navigation -->
+<header class="site-top">
+  <div class="container topbar">
+
+    <a class="brand" href="https://zoogym.com/" target="_blank" rel="noopener">
+      <img src="images/zoo-logo.png"
+           alt="The Zoo Health Club Logo"
+           style="height:48px; width:auto;" />
+    </a>
+
+    <nav aria-label="Primary">
+      <a href="#features">Features</a>
+      <a href="#classes">Classes</a>
+      <a href="#pass">Free Pass</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="cta-row">
+      <a class="btn btn--ghost" href="#pass">FREE PASS</a>
+      <a class="btn" href="tel:+12256478442">JOIN THIS CLUB</a>
+    </div>
+
+  </div>
+</header>
+
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner container">
+      <div class="eyebrow">Zoo Health Club of</div>
+      <h1 class="headline">GONZALES</h1>
+      <p class="subhead">1210 N Airline Hwy, Suite 24, Gonzales, Louisiana 70737 • Proudly serving Gonzales, LA • Nearby: Oki Japan, Taco Bell, Casa Maria Mexican Grill</p>
+      <div class="hero-actions">
+        <a class="btn" href="#pass">GET A FREE 7-DAY PASS</a>
+        <a class="btn btn--ghost" href="#features">SEE EQUIPMENT & CLASSES</a>
+      </div>
+      <div class="location">Open 24/7 Staffed hours 6am-10pm M-F </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section id="features" class="section">
+    <div class="container">
+      <h2 class="section-title">Equipment offered</h2>
+      <div class="grid cards">
+        <article class="card"><h3>Circuit Machines</h3><p>Full-body circuit with clear labels for all levels.</p></article>
+        <article class="card"><h3>Selectorized</h3><p>Pin-select stations for safe progressive overload.</p></article>
+        <article class="card"><h3>Plate-Loaded</h3><p>Hoist & Hammer-style plate machines for power.</p></article>
+        <article class="card"><h3>Iso-Lateral</h3><p>Balanced, unilateral strength development.</p></article>
+        <article class="card"><h3>Free Weights</h3><p>Dumbbells, benches, squat racks & more.</p></article>
+        <article class="card"><h3>Cardio Equipment</h3><p>Treadmills, ellipticals, rowers & stair climbers for all fitness levels.</p></article>
+      </div>
+
+      <h2 class="section-title" style="margin-top:44px">Group Exercise Classes</h2>
+      <div class="grid cards">
+        <article class="card"><h3>Group Personal Training</h3><ul class="bullets"><li>Boot Camp</li><li>Pilates</li><li>Yoga</li><li>Zumba®</li></ul></article>
+        <article class="card"><h3>Senior Fitness</h3><p>Low-impact mobility & strength for seniors.</p></article>
+        <article class="card"><h3>Cycling</h3><p>Studio bikes with energizing playlists.</p></article>
+      </div>
+
+      <h2 class="section-title" style="margin-top:44px">Other Amenities & Services</h2>
+      <div class="grid cards">
+        <article class="card"><h3>Locker Rooms</h3><p>Showers, toiletries, and Lockers.</p></article>
+        <article class="card"><h3>Tanning</h3><p>Complimentary for members. Ask staff for details.</p></article>
+        <article class="card"><h3>Infared Saunas</h3><p>Great for relaxing after a workout</p></article>
+        <article class="card"><h3>Personal Training</h3><p>Certified trainers to help you hit goals faster.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <!-- FREE PASS -->
+<section id="pass" class="section" aria-labelledby="pass-title">
+  <div class="container pass">
+    <div class="card">
+      <h2 id="pass-title" class="section-title">Free 7-Day Pass</h2>
+      <p class="subhead" style="margin:0 0 18px">
+        Fill this out and present your Free Pass in person.
+      </p>
+
+      <form class="form" id="passForm" novalidate>
+        <div>
+          <label>First Name *
+            <input required name="firstName" autocomplete="given-name" />
+          </label>
+        </div>
+
+        <div>
+          <label>Last Name *
+            <input required name="lastName" autocomplete="family-name" />
+          </label>
+        </div>
+
+        <div>
+          <label>Email *
+            <input required type="email" name="email" autocomplete="email" />
+          </label>
+        </div>
+
+        <div>
+          <label>Phone Number *
+            <input required type="tel" name="phone" autocomplete="tel" />
+          </label>
+        </div>
+
+        <div>
+          <label>City *
+            <input required name="city" />
+          </label>
+        </div>
+
+        <div>
+          <label>State *
+            <select name="state" required>
+              <option value="">Select…</option>
+              <option>LA</option>
+              <option>TX</option>
+              <option>MS</option>
+              <option>AL</option>
+              <option>FL</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="full">
+          <label>Zip Code *
+            <input required name="zip" inputmode="numeric" pattern="\n?\d{5}(-\d{4})?" />
+          </label>
+        </div>
+
+        <!-- error message spot -->
+        <p id="formError" class="error" role="alert" aria-live="polite"></p>
+
+        <div class="full">
+          <button class="btn" type="submit">Create My Free Pass</button>
+          <button class="btn btn--ghost" type="reset" style="margin-left:.6rem">
+            Reset
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+  <!-- CLASS / MAP / PROMO TILES -->
+  <section id="classes" class="section">
+    <div class="container">
+      <div class="tiles">
+        <a class="tile" href="#classes" style="background:url('https://images.unsplash.com/photo-1507335563142-a814f0f1bb3e?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat"><h4>CLASS SCHEDULE</h4></a>
+        <a class="tile" href="https://maps.google.com/?q=The+Zoo+Health+Club+Gonzales" target="_blank" rel="noopener" style="background:url('https://images.unsplash.com/photo-1504384764586-bb4cdc1707b0?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat"><h4>MAPS & DIRECTIONS</h4></a>
+        <a class="tile" href="#promos" style="background:url('https://images.unsplash.com/photo-1554284126-aa88f22d8b74?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat"><h4>CURRENT PROMOTION</h4></a>
+      </div>
+    </div>
+  </section>
+
+ <!-- CTA ROW -->
+<section class="section">
+  <div class="container grid cards" style="grid-template-columns: repeat(3, minmax(0, 1fr));">
+
+    <article class="card" style="background:url('https://images.unsplash.com/photo-1579758629938-03607ccdbaba?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat; min-height:260px; display:grid; place-items:end; padding:22px">
+      <a class="btn" href="#pass">JOIN NOW</a>
+    </article>
+
+    <article class="card" style="background:url('https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat; min-height:260px; display:grid; place-items:end; padding:22px">
+      <a class="btn btn--ghost" href="#">PERSONAL TRAINING</a>
+    </article>
+
+    <article class="card" style="background:url('https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1400&auto=format&fit=crop') center/cover no-repeat; min-height:260px; display:grid; place-items:end; padding:22px">
+      <a class="btn" href="https://zoogym.com/franchise-opportunity/" target="_blank" rel="noopener">
+        OWN A ZOO
+      </a>
+    </article>
+
+  </div>
+</section>
+<!-- FACEBOOK LINK STRIP -->
+ <section class="section facebook-strip">
+  <div class="container review" style="gap:14px;">
+    <a href="https://www.facebook.com/zoohealthclubgonzales/" target="_blank" rel="noopener" style="display:flex; align-items:center; gap:10px; text-decoration:none; color:var(--accent); font-weight:700;">
+
+      <!-- Facebook Icon -->
+      <svg xmlns="http://www.w3.org/2000/svg" height="34px" viewBox="0 0 512 512" fill="var(--accent)">
+        <path d="M504 256C504 119 393 8 256 8S8 119 8 256c0 123.5 90.7 225.9 209 240v-168h-63v-72h63v-55.2c0-62.2 37-96.8 93.7-96.8 27.1 0 55.3 4.8 55.3 4.8v61h-31.2c-30.8 0-40.3 19.1-40.3 38.7V256h68.6l-11 72h-57.6v168c118.3-14.1 209-116.5 209-240z"/>
+      </svg>
+
+      <span style="font-size:1.2rem;">Follow Us On Facebook</span>
+
+    </a>
+  </div>
+</section>
+  <!-- REVIEW STRIP -->
+  <section class="section google-strip">
+    <div class="container review">
+      <img alt="Google" src="https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg" style="height:30px; filter:brightness(1.3)"/>
+      <span>Review Us On Google</span>
+      <span class="stars">★★★★★</span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer id="contact">
+    <div class="container row">
+      <p style="margin:0; font-weight:800">1210 N. Airline HWY, Suite 24, Gonzales, Louisiana 70737<br>(225) 647-8442<br>Thanks for reading the entire website! It took me a longtime to perfect - William Coppersmith</p>
+      <div class="cta-row">
+        <a class="btn btn--ghost" href="mailto:gonzales-la@zoogym.com">Email Us</a>
+        <a class="btn" href="tel:+12256478442">Call Now</a>
+      </div>
+    </div>
+  </footer>
+<!-- Detect phone or desktop -->
+<script>
+  function isPhone() {
+    return /iPhone|Android|Mobile|iPad|iPod/i.test(navigator.userAgent);
+  }
+
+  // This will print in your browser console
+  if (isPhone()) {
+    console.log("You are on a PHONE 📱");
+  } else {
+    console.log("You are on a DESKTOP 💻");
+  }
+</script>
+
+    <!-- EmailJS + Form handler -->
+  <!-- Step A: Load the NEW EmailJS script -->
+  <script
+    type="text/javascript"
+    src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+
+  <script type="text/javascript">
+    // Step B: Turn EmailJS on with your public key
+    (function () {
+      emailjs.init({
+        publicKey: "E1HPP5OSvmp0T_CKF",
+      });
+    })();
+
+    // Step C: Wait for the page to be ready
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("passForm");
+      const error = document.getElementById("formError");
+
+      if (!form) {
+        console.error("Form with id 'passForm' not found.");
+        return;
+      }
+
+      // Step D: When someone hits "Create My Free Pass"
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        error.textContent = "";
+
+        // Step E: Check that all required fields are filled
+        if (!form.checkValidity()) {
+          error.textContent =
+            "Please complete all required fields.";
+          return;
+        }
+
+        // Step F: Grab the form data
+        const data = Object.fromEntries(new FormData(form));
+        const passCode =
+          "PASS-" + Math.random().toString(36).slice(2, 8).toUpperCase();
+
+        // Step G: Build the data we send to EmailJS
+        const templateParams = {
+          to_name: data.firstName,
+          last_name: data.lastName,
+          phone: data.phone,
+          city_state: `${data.city}, ${data.state} ${data.zip}`,
+          pass_code: passCode,
+          to_email: data.email, // used in template
+          email: data.email,    // extra param your template shows
+        };
+
+        // Step H: Send the email
+        emailjs
+          .send("service_7oxd3co", "template_ypxfa2n", templateParams)
+          .then(function (response) {
+            console.log("EmailJS SUCCESS:", response);
+            alert("Your free guest pass has been emailed! Check your inbox.");
+            form.reset();
+          })
+          .catch(function (err) {
+            console.error("EmailJS ERROR:", err);
+            error.textContent =
+              "Something went wrong sending the email. Please try again.";
+          });
+      });
+    });
+  </script>
+</body>
+</html>
